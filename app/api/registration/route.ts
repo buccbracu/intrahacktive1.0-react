@@ -10,10 +10,10 @@ const permittedCategories = [
 ];
 
 export async function GET(request: NextRequest) {
-  await dbConnect(); // Ensure database connection
+  await dbConnect();
 
   const url = new URL(request.url);
-  const teamID = url.searchParams.get("id"); // Check if a team ID is provided
+  const teamID = url.searchParams.get("id"); 
 
   try {
     if (teamID) {
@@ -67,14 +67,14 @@ export async function POST(request: NextRequest) {
     const newTeam = await Team.create(body);
 
     return NextResponse.json(
-      { message: "Team created successfully", newTeam },
+      { message: "Registration Successful ", newTeam },
       { status: 201 }
     );
   } catch (error) {
     console.error(error);
     return NextResponse.json(
       {
-        message: "An error occurred while creating the team.",
+        message: "An error occurred while registering the team.",
       },
       { status: 500 }
     );
