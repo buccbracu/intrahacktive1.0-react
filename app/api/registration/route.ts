@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import Team from "@/models/team";
+import {
+  databaseWizardsSuccessMail,
+  debuggerSuccessMail,
+  hackathonSuccessMail,
+  cPCSuccessMail,
+} from "@/helpers/mailer";
 
 const permittedCategories = [
   "Hackathon",
@@ -13,7 +19,7 @@ export async function GET(request: NextRequest) {
   await dbConnect();
 
   const url = new URL(request.url);
-  const teamID = url.searchParams.get("id"); 
+  const teamID = url.searchParams.get("id");
 
   try {
     if (teamID) {
@@ -65,6 +71,101 @@ export async function POST(request: NextRequest) {
     }
 
     const newTeam = await Team.create(body);
+    if (body.category == "Hackathon") {
+      await hackathonSuccessMail(
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.category,
+        body.teamName,
+        body.projectName,
+        body.projectPlan,
+        body.members[1].name,
+        body.members[1].gSuite,
+        body.members[2].name,
+        body.members[2].gSuite
+      );
+      await hackathonSuccessMail(
+        body.members[1].name,
+        body.members[1].gSuite,
+        body.category,
+        body.teamName,
+        body.projectName,
+        body.projectPlan,
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.members[2].name,
+        body.members[2].gSuite
+      );
+      await hackathonSuccessMail(
+        body.members[2].name,
+        body.members[2].gSuite,
+        body.category,
+        body.teamName,
+        body.projectName,
+        body.projectPlan,
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.members[1].name,
+        body.members[1].gSuite
+      );
+    }
+    if (body.category == "Debuggers") {
+      await debuggerSuccessMail(
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.category
+      );
+    }
+    if (body.category == "Database Wizards") {
+      await databaseWizardsSuccessMail(
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.category,
+        body.teamName,
+        body.members[1].name,
+        body.members[1].gSuite
+      );
+      await databaseWizardsSuccessMail(
+        body.members[1].name,
+        body.members[1].gSuite,
+        body.category,
+        body.teamName,
+        body.members[0].name,
+        body.members[0].gSuite
+      );
+    }
+    if (body.category == "CPC") {
+      await cPCSuccessMail(
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.category,
+        body.teamName,
+        body.members[1].name,
+        body.members[1].gSuite,
+        body.members[2].name,
+        body.members[2].gSuite
+      );
+      await cPCSuccessMail(
+        body.members[1].name,
+        body.members[1].gSuite,
+        body.category,
+        body.teamName,
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.members[2].name,
+        body.members[2].gSuite
+      );
+      await cPCSuccessMail(
+        body.members[2].name,
+        body.members[2].gSuite,
+        body.category,
+        body.teamName,
+        body.members[0].name,
+        body.members[0].gSuite,
+        body.members[1].name,
+        body.members[1].gSuite
+      );
+    }
 
     return NextResponse.json(
       { message: "Registration Successful ", newTeam },
