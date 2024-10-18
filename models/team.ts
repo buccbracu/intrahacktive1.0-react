@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-// Member Schema
 const memberSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -9,17 +8,16 @@ const memberSchema = new mongoose.Schema({
   gSuite: {
     type: String,
     required: true,
-    match: /@g\.bracu\.ac\.bd$/, // Ensure valid BRACU G-Suite email
+    match: /@g\.bracu\.ac\.bd$/,
   },
   phone: {
     type: String,
     required: true,
-    match: /^\+8801[3-9][0-9]{8}$/, // Validate Bangladeshi phone number
   },
   bracuID: {
     type: String,
     required: true,
-    match: /^[0-9]{8}$/, // Ensure valid BRACU ID format
+    match: /^[0-9]{8}$/,
   },
   level: {
     type: String,
@@ -28,7 +26,6 @@ const memberSchema = new mongoose.Schema({
   },
 });
 
-// Define the TypeScript type for members array
 type MemberType = Document & {
   name: string;
   gSuite: string;
@@ -37,7 +34,6 @@ type MemberType = Document & {
   level: "Senior" | "Junior";
 };
 
-// Team Schema
 const teamSchema = new mongoose.Schema({
   teamName: {
     type: String,
@@ -53,7 +49,7 @@ const teamSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function (v: MemberType[]) {
-        return v.length >= 1 && v.length <= 3; // Minimum 1 member, maximum 3 members
+        return v.length >= 1 && v.length <= 3;
       },
       message: (props: { value: MemberType[] }) =>
         `A team must have at least 1 and no more than 3 members! Current count: ${props.value.length}`,

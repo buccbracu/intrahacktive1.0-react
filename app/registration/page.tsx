@@ -2,6 +2,21 @@
 import { useState } from "react";
 
 export default function Registration() {
+  interface Member {
+    name?: string;
+    gSuite?: string;
+    phone?: string;
+    bracuID?: string;
+    level?: string;
+  }
+
+  interface FormData {
+    teamName: string;
+    projectName: string;
+    projectPlan: string;
+    category: string;
+    members: Member[];
+  }
   function addMemberFields(numFields: number) {
     const fields = [];
 
@@ -185,35 +200,81 @@ export default function Registration() {
       {addMemberFields(3)}
     </div>
   );
-  const [formData, setFormData] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
+
+  const [formData, setFormData] = useState<FormData>({
+    teamName: "",
+    projectName: "",
+    projectPlan: "",
+    category: "",
+    members: [],
+  });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+    if (name.startsWith("member")) {
+      const match = name.match(/member(\d+)([A-Za-z]+)/);
+      if (match) {
+        const memberIndex = parseInt(match[1], 10) - 1;
+        const rawFieldName = match[2];
+        const fieldName =
+          rawFieldName.charAt(0).toLowerCase() + rawFieldName.slice(1);
+
+        setFormData((prevState) => {
+          const updatedMembers = [...prevState.members];
+
+          if (!updatedMembers[memberIndex]) {
+            updatedMembers[memberIndex] = {};
+          }
+
+          updatedMembers[memberIndex][fieldName as keyof Member] = value;
+
+          return { ...prevState, members: updatedMembers };
+        });
+      }
+    } else {
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const preparedData = {
+      ...formData,
+      category: selectedCategory,
+    };
+
     try {
-      console.log(selectedCategory);
-      console.log(formData);
-      const response = await fetch("/api/form", {
+      console.log("Submitting Form Data:", preparedData);
+
+      const response = await fetch("/api/registration", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(preparedData),
       });
 
       if (response.ok) {
-        alert("Form submitted successfully!");
+        const result = await response.json();
+        alert(result.message || "Form submitted successfully!");
+
+        setFormData({
+          teamName: "",
+          projectName: "",
+          projectPlan: "",
+          members: [],
+          category: "",
+        });
+        setSelectedCategory("");
       } else {
-        alert("Failed to submit form.");
+        const errorData = await response.json();
+        alert(errorData.message || "Failed to submit the form.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
