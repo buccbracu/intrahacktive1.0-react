@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Logo from "@/app/img/logo/bucc-logo-full.svg";
 import Link from "next/link";
-import hackathon from "@/app/img/segments/hackathon.jpg";
-import debuggers from "@/app/img/segments/debuggers.jpg";
-import databasewizard from "@/app/img/segments/database-wizard.jpg";
-import cpc from "@/app/img/segments/cpc.jpg";
+import {
+  finalRoundEvents,
+  onlinePreliminaryEvents,
+  segments,
+} from "@/lib/data";
+import Event from "./components/home/Event";
+import Segment from "./components/home/Segment";
 export default function Home() {
   return (
     <>
@@ -40,43 +43,16 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 secondary-color">
                   Online Preliminary Events
                 </h3>
-                {/* <!-- Day 1 --> */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-2">
-                    <div className="preliminary-round-circle rounded-full h-16 w-16 flex items-center justify-center text-white font-semibold">
-                      Day 1
-                    </div>
-                    <p className="text-lg ml-4">April 10, 2024</p>
-                  </div>
-                  <div className="ml-12">
-                    <h4 className="text-xl font-semibold mb-2">
-                      Registration Opens
-                    </h4>
-                    <p className="text-gray-700">
-                      Registration for IntraHacktive 1.0 begins. Participants
-                      can register online through the website.
-                    </p>
-                  </div>
-                </div>
-                {/* <!-- Day 2 --> */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-2">
-                    <div className="preliminary-round-circle rounded-full h-16 w-16 flex items-center justify-center text-white font-semibold">
-                      Day 2
-                    </div>
-                    <p className="text-lg ml-4">April 11, 2024</p>
-                  </div>
-                  <div className="ml-12">
-                    <h4 className="text-xl font-semibold mb-2">
-                      Online Coding Challenge
-                    </h4>
-                    <p className="text-gray-700">
-                      Participate in our online coding challenge to test your
-                      problem-solving skills.
-                    </p>
-                  </div>
-                </div>
-                {/* <!-- Add more preliminary events if needed --> */}
+                {/* <!-- Online Preliminary Events --> */}
+                {onlinePreliminaryEvents.map((e, i) => (
+                  <Event
+                    date={e.date}
+                    description={e.description}
+                    index={i}
+                    title={e.title}
+                    key={i}
+                  />
+                ))}
               </div>
             </div>
             {/* <!-- Final Round Events --> */}
@@ -85,42 +61,17 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 secondary-color">
                   Final Round Events
                 </h3>
-                {/* <!-- Day 3 --> */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-2">
-                    <div className="final-round-circle rounded-full h-16 w-16 flex items-center justify-center text-white font-semibold">
-                      Day 3
-                    </div>
-                    <p className="text-lg ml-4">April 12, 2024</p>
-                  </div>
-                  <div className="ml-12">
-                    <h4 className="text-xl font-semibold mb-2">Hackathon</h4>
-                    <p className="text-gray-700">
-                      Join the thrilling hackathon where participants will
-                      collaborate, innovate, and build exciting projects within
-                      a limited timeframe.
-                    </p>
-                  </div>
-                </div>
-                {/* <!-- Day 4 --> */}
-                <div className="mb-6">
-                  <div className="flex items-center mb-2">
-                    <div className="final-round-circle rounded-full h-16 w-16 flex items-center justify-center text-white font-semibold">
-                      Day 4
-                    </div>
-                    <p className="text-lg ml-4">April 13, 2024</p>
-                  </div>
-                  <div className="ml-12">
-                    <h4 className="text-xl font-semibold mb-2">
-                      Final Presentations
-                    </h4>
-                    <p className="text-gray-700">
-                      Finalists will present their projects to a panel of
-                      judges. Winners will be announced at the end of the event.
-                    </p>
-                  </div>
-                </div>
-                {/* <!-- Add more final round events if needed --> */}
+                {/* <!-- Final Round Events --> */}
+                {finalRoundEvents.map((e, i) => (
+                  <Event
+                    date={e.date}
+                    description={e.description}
+                    index={i + 2}
+                    title={e.title}
+                    key={i}
+                    variant="final"
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -134,132 +85,15 @@ export default function Home() {
             Segments
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
-            {/* <!-- Segment 1 --> */}
-            <div className="bg-white rounded-lg shadow-md p-3 flex flex-col justify-between h-full">
-              <div>
-                <Image
-                  src={hackathon}
-                  alt="Hackathon"
-                  className="mb-4 rounded-md"
-                />
-                <p className="text-gray-700 mb-4">
-                  Immerse yourself in our hackathon where you will collaborate,
-                  innovate, and build exciting projects within a limited
-                  timeframe.
-                </p>
-              </div>
-              <div>
-                <div className="flex justify-center mt-8">
-                  <div className="flex flex-row items-center gap-8">
-                    <Link
-                      href="guidelines"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md guidelines-btn"
-                    >
-                      Guidelines
-                    </Link>
-                    <Link
-                      href="registration"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md register-btn"
-                    >
-                      Register
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Segment 2 --> */}
-            <div className="bg-white rounded-lg shadow-md p-3 flex flex-col justify-between h-full">
-              <div>
-                <Image
-                  src={debuggers}
-                  alt="Debuggers"
-                  className="mb-4 rounded-md"
-                />
-                <p className="text-gray-700 mb-4">
-                  Engage in the art of debugging by participating in our
-                  challenge to find bugs in some codebases through reverse
-                  engineering.
-                </p>
-              </div>
-              <div>
-                <div className="flex justify-center mt-8">
-                  <div className="flex flex-row items-center gap-8">
-                    <Link
-                      href="guidelines"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md guidelines-btn"
-                    >
-                      Guidelines
-                    </Link>
-                    <Link
-                      href="registration"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md register-btn"
-                    >
-                      Register
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Segment 3 --> */}
-            <div className="bg-white rounded-lg shadow-md p-3 flex flex-col justify-between h-full">
-              <div>
-                <Image
-                  src={databasewizard}
-                  alt="Database Wizards"
-                  className="mb-4 rounded-md"
-                />
-                <p className="text-gray-700 mb-4">
-                  Join our Database Wizards team contest! Gather your team of
-                  two members and compete to showcase your skills.
-                </p>
-              </div>
-              <div>
-                <div className="flex justify-center mt-8">
-                  <div className="flex flex-row items-center gap-8">
-                    <Link
-                      href="guidelines"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md guidelines-btn"
-                    >
-                      Guidelines
-                    </Link>
-                    <Link
-                      href="registration"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md register-btn"
-                    >
-                      Register
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- Segment 4 --> */}
-            <div className="bg-white rounded-lg shadow-md p-3 flex flex-col justify-between h-full">
-              <div>
-                <Image src={cpc} alt="Networking" className="mb-4 rounded-md" />
-                <p className="text-gray-700 mb-4">
-                  Get ready to sharpen your coding skills and compete against
-                  top programmers in our Competitive Programming contest.
-                </p>
-              </div>
-              <div>
-                <div className="flex justify-center mt-8">
-                  <div className="flex flex-row items-center gap-8">
-                    <Link
-                      href="guidelines"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md guidelines-btn"
-                    >
-                      Guidelines
-                    </Link>
-                    <Link
-                      href="registration"
-                      className="text-decoration-none text-white py-2 px-3 rounded-md register-btn"
-                    >
-                      Register
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* <!-- Segments --> */}
+            {segments.map((segment, i) => (
+              <Segment
+                key={i}
+                description={segment.description}
+                imgAlt={segment.imgAlt}
+                imgSrc={segment.imgSrc}
+              />
+            ))}
           </div>
         </div>
       </section>
