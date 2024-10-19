@@ -1,8 +1,9 @@
 type ParsedDate = { year: number; month: string; day: number };
 
-export const parseDate = (
-  dateObj: Date | Date[]
-): ParsedDate | ParsedDate[] => {
+// Helper type to infer return type based on the input
+export const parseDate = <T extends Date | Date[]>(
+  dateObj: T
+): T extends Date ? ParsedDate : ParsedDate[] => {
   const months = [
     "January",
     "February",
@@ -19,23 +20,16 @@ export const parseDate = (
   ];
 
   if (Array.isArray(dateObj)) {
-    return [
-      {
-        year: dateObj[0].getFullYear(),
-        month: months[dateObj[0].getMonth()],
-        day: dateObj[0].getDate(),
-      },
-      {
-        year: dateObj[1].getFullYear(),
-        month: months[dateObj[1].getMonth()],
-        day: dateObj[1].getDate(),
-      },
-    ];
+    return dateObj.map((date) => ({
+      year: date.getFullYear(),
+      month: months[date.getMonth()],
+      day: date.getDate(),
+    })) as T extends Date ? ParsedDate : ParsedDate[];
   }
 
   return {
     year: dateObj.getFullYear(),
     month: months[dateObj.getMonth()],
     day: dateObj.getDate(),
-  };
+  } as T extends Date ? ParsedDate : ParsedDate[];
 };

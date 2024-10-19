@@ -15,6 +15,7 @@ export default function Event({
   index,
   title,
 }: EventProps) {
+  const parsedDate = parseDate(date);
   return (
     <div className="mb-6">
       <div className="flex items-center mb-2">
@@ -23,7 +24,9 @@ export default function Event({
         >
           Day {index + 1}
         </div>
-        <p className="text-lg ml-4">{parseDate(date)}</p>
+        <p className="text-lg ml-4">
+          {parsedDate.month} {parsedDate.day}, {parsedDate.year}
+        </p>
       </div>
       <div className="ml-12">
         <h4 className="text-xl font-semibold mb-2">{title}</h4>
