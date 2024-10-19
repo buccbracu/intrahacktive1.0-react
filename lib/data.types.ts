@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { PropsWithChildren, ReactElement } from "react";
 
 export interface IOnlinePreliminaryEvents {
   date: Date;
@@ -15,5 +16,23 @@ export interface IFinalRoundEvents {
 export interface ISegment {
   imgSrc: StaticImageData;
   imgAlt: string;
+  description: string;
+}
+
+export interface ITabItem {
+  label: string;
+  id: string;
+  selected: boolean;
+}
+
+export interface ITabContent {
+  id: string;
+  selected: boolean;
+  content: () => JSX.Element;
+}
+
+export interface IImportantDate {
+  label: string;
+  date: Date | Date[];
   description: string;
 }

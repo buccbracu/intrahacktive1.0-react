@@ -1,4 +1,8 @@
-export const parseDate = (dateObj: Date): string => {
+type ParsedDate = { year: number; month: string; day: number };
+
+export const parseDate = (
+  dateObj: Date | Date[]
+): ParsedDate | ParsedDate[] => {
   const months = [
     "January",
     "February",
@@ -13,11 +17,25 @@ export const parseDate = (dateObj: Date): string => {
     "November",
     "December",
   ];
-  const date = {
+
+  if (Array.isArray(dateObj)) {
+    return [
+      {
+        year: dateObj[0].getFullYear(),
+        month: months[dateObj[0].getMonth()],
+        day: dateObj[0].getDate(),
+      },
+      {
+        year: dateObj[1].getFullYear(),
+        month: months[dateObj[1].getMonth()],
+        day: dateObj[1].getDate(),
+      },
+    ];
+  }
+
+  return {
     year: dateObj.getFullYear(),
     month: months[dateObj.getMonth()],
     day: dateObj.getDate(),
   };
-
-  return `${date.month} ${date.day}, ${date.year}`;
 };
