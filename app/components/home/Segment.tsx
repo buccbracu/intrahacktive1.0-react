@@ -2,7 +2,7 @@ import { ISegment } from "@/lib/data.types";
 import Image from "next/image";
 import Link from "next/link";
 
-interface SegmentProps extends ISegment {}
+type SegmentProps = ISegment;
 
 export default function Segment({ imgSrc, imgAlt, description }: SegmentProps) {
   return (

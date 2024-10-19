@@ -1,6 +1,6 @@
 import { ITabContent } from "@/lib/data.types";
 
-interface TabContentProps extends ITabContent {}
+type TabContentProps = ITabContent;
 
 export default function TabContent({ id, selected, content }: TabContentProps) {
   return (

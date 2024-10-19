@@ -1,7 +1,7 @@
 import { IImportantDate } from "@/lib/data.types";
 import { parseDate } from "@/lib/utils";
 
-interface ImportantDateProps extends IImportantDate {}
+type ImportantDateProps = IImportantDate;
 
 export default function ImportantDate({
   label,

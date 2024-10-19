@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-interface TabListProps extends PropsWithChildren {}
+type TabListProps = PropsWithChildren;
 
 export default function TabList({ children }: TabListProps) {
   return (

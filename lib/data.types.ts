@@ -1,5 +1,4 @@
 import { StaticImageData } from "next/image";
-import { PropsWithChildren, ReactElement } from "react";
 
 export interface IOnlinePreliminaryEvents {
   date: Date;

@@ -1,6 +1,6 @@
 import { ITabItem } from "@/lib/data.types";
 
-interface TabItemProps extends ITabItem {}
+type TabItemProps = ITabItem;
 
 export default function TabItem({ id, label, selected }: TabItemProps) {
   return (

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 
-interface TabContentProps extends PropsWithChildren {}
+type TabContentProps = PropsWithChildren;
 
 export default function TabContents({ children }: TabContentProps) {
   return (
