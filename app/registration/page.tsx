@@ -19,8 +19,8 @@ export default function Registration() {
     members: Member[];
   }
 
-  function addMemberFields(numFields: number) {
-    const fields = [];
+  function addMemberFields(numFields: number): React.ReactNode[] {
+    const fields: React.ReactNode[] = [];
 
     for (let i = 1; i <= numFields; i++) {
       fields.push(
