@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Registration() {
   interface Member {
@@ -12,19 +13,20 @@ export default function Registration() {
 
   interface FormData {
     teamName: string;
-    projectName: string;
+    // projectName: string;
     projectPlan: string;
     category: string;
     members: Member[];
   }
+
   function addMemberFields(numFields: number) {
     const fields = [];
 
     for (let i = 1; i <= numFields; i++) {
       fields.push(
-        <div key={i}>
+        <div key={i} className="mb-6">
           <h2 className="text-xl font-bold mb-2">Member {i} Information</h2>
-          <div className="grid gap-6 mb-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <div>
               <label htmlFor={`member${i}Name`} className="block mb-2">
                 Name:
@@ -111,7 +113,7 @@ export default function Registration() {
 
   const hackathonForm = () => (
     <div className="w-full mb-4">
-      <div>
+      <div className="mb-4">
         <label htmlFor="teamName" className="block mb-1">
           Team Name:
         </label>
@@ -125,7 +127,7 @@ export default function Registration() {
           className="w-full border rounded-md px-4 py-2"
         />
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="projectName" className="block mb-1">
           Project Name:
         </label>
@@ -138,8 +140,8 @@ export default function Registration() {
           required
           className="w-full border rounded-md px-4 py-2 mb-4"
         />
-      </div>
-      <div>
+      </div> */}
+      <div className="mb-4">
         <label htmlFor="projectPlan" className="block mb-1">
           Project Plan (Drive Link):
         </label>
@@ -150,7 +152,7 @@ export default function Registration() {
           name="projectPlan"
           placeholder="https://drive.google.com/drive/folders/tDimDbI9AVBm3tx_1Hj9JyLuI4LWeCun"
           required
-          className="w-full border rounded-md px-4 py-2 mb-4"
+          className="w-full border rounded-md px-4 py-2"
         />
       </div>
       {addMemberFields(3)}
@@ -160,9 +162,10 @@ export default function Registration() {
   const debuggersForm = () => (
     <div className="w-full mb-4">{addMemberFields(1)}</div>
   );
+
   const databaseWizards = () => (
     <div className="w-full mb-4">
-      <div>
+      <div className="mb-4">
         <label htmlFor="teamName" className="block mb-1">
           Team Name:
         </label>
@@ -176,35 +179,37 @@ export default function Registration() {
           className="w-full border rounded-md px-4 py-2"
         />
       </div>
-
       {addMemberFields(2)}
     </div>
   );
-  const cPCForm = () => (
-    <div className="w-full mb-4">
-      <div>
-        <label htmlFor="teamName" className="block mb-1">
-          Team Name:
-        </label>
-        <input
-          onChange={handleInputChange}
-          type="text"
-          id="teamName"
-          name="teamName"
-          placeholder="return None"
-          required
-          className="w-full border rounded-md px-4 py-2"
-        />
-      </div>
 
-      {addMemberFields(3)}
-    </div>
-  );
+  // const cPCForm = () => (
+  //   <div className="w-full mb-4">
+  //     <div>
+  //       <label htmlFor="teamName" className="block mb-1">
+  //         Team Name:
+  //       </label>
+  //       <input
+  //         onChange={handleInputChange}
+  //         type="text"
+  //         id="teamName"
+  //         name="teamName"
+  //         placeholder="return None"
+  //         required
+  //         className="w-full border rounded-md px-4 py-2"
+  //       />
+  //     </div>
+
+  //     {addMemberFields(3)}
+  //   </div>
+  // );
+
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [pending, setPending] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     teamName: "",
-    projectName: "",
+    // projectName: "",
     projectPlan: "",
     category: "",
     members: [],
@@ -245,14 +250,14 @@ export default function Registration() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setPending(true);
     const preparedData = {
       ...formData,
       category: selectedCategory,
     };
 
     try {
-      console.log("Submitting Form Data:", preparedData);
+      // console.log("Submitting Form Data:", preparedData);
 
       const response = await fetch("/api/registration", {
         method: "POST",
@@ -262,29 +267,33 @@ export default function Registration() {
 
       if (response.ok) {
         const result = await response.json();
-        alert(result.message || "Form submitted successfully!");
+        toast.success(result.message || "Form submitted successfully!");
 
         setFormData({
           teamName: "",
-          projectName: "",
+          // projectName: "",
           projectPlan: "",
           members: [],
           category: "",
         });
         setSelectedCategory("");
+        setPending(false);
       } else {
         const errorData = await response.json();
-        alert(errorData.message || "Failed to submit the form.");
+        toast.error(errorData.message || "Failed to submit the form.");
+        setPending(false);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
+      setPending(false);
     }
   };
+
   return (
     <div
       id="registrationFormContainer"
-      className="container mx-auto p-4 flex flex-col items-center"
+      className="container mx-auto p-4 flex flex-col items-center "
     >
       <h1 className="text-2xl font-bold mb-4 primary-color">
         Registration Form
@@ -331,21 +340,24 @@ export default function Registration() {
             <option value="Hackathon">Hackathon</option>
             <option value="Debuggers">Debuggers</option>
             <option value="Database Wizards">Database Wizards</option>
-            <option value="CPC">CPC</option>
+            {/* <option value="CPC">CPC</option> */}
           </select>
         </div>
 
         {selectedCategory === "Hackathon" && hackathonForm()}
         {selectedCategory === "Debuggers" && debuggersForm()}
         {selectedCategory === "Database Wizards" && databaseWizards()}
-        {selectedCategory === "CPC" && cPCForm()}
+        {/* {selectedCategory === "CPC" && cPCForm()} */}
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
-        >
-          Submit
-        </button>
+        {
+          <button
+            type="submit"
+            disabled={pending}
+            className="w-full bg-primary-color text-white rounded-md py-2"
+          >
+            {pending ? "Submitting..." : "Submit"}
+          </button>
+        }
       </form>
     </div>
   );

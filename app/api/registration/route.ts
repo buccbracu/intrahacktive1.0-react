@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
-import dbConnect from "@/lib/dbConnect";
-import Team from "@/models/team";
 import {
+  cPCSuccessMail,
   databaseWizardsSuccessMail,
   debuggerSuccessMail,
   hackathonSuccessMail,
-  cPCSuccessMail,
 } from "@/helpers/mailer";
+import dbConnect from "@/lib/dbConnect";
+import Team from "@/models/team";
+import { NextRequest, NextResponse } from "next/server";
 
 const permittedCategories = [
   "Hackathon",
@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
         body.members[0].gSuite,
         body.category,
         body.teamName,
-        body.projectName,
+        // body.projectName,
         body.projectPlan,
         body.members[1].name,
         body.members[1].gSuite,
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
         body.members[1].gSuite,
         body.category,
         body.teamName,
-        body.projectName,
+        // body.projectName,
         body.projectPlan,
         body.members[0].name,
         body.members[0].gSuite,
@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
         body.members[2].gSuite,
         body.category,
         body.teamName,
-        body.projectName,
+        // body.projectName,
         body.projectPlan,
         body.members[0].name,
         body.members[0].gSuite,

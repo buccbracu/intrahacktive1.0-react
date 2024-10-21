@@ -13,6 +13,7 @@ export interface IFinalRoundEvents {
 }
 
 export interface ISegment {
+  id: string;
   imgSrc: StaticImageData;
   imgAlt: string;
   description: string;
@@ -22,6 +23,7 @@ export interface ITabItem {
   label: string;
   id: string;
   selected: boolean;
+  onClick: () => void;
 }
 
 export interface ITabContent {

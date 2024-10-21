@@ -1,11 +1,11 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
+import { Toaster } from "sonner";
 import BootstrapClient from "./components/BootstrapClient";
-
-import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-geist-sans",
@@ -32,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={spaceGrotesk.className}>
         <NavBar />
+        <Toaster position="bottom-right" richColors />
         {children}
         <Footer />
         <BootstrapClient />

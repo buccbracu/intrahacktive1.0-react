@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import PurpleIcon from "../img/logo/intrahacktive-logo-purple-white.png";
 import Link from "next/link";
+import PurpleIcon from "../img/logo/intrahacktive-icon-purple.png";
+import PurpleLogo from "../img/logo/intrahacktive-logo-purple-white.png";
 
 // import styles from "@/app/styles.module.css";
 
@@ -10,7 +13,7 @@ export default function NavBar() {
       <div className="container">
         {/* Logo for medium and large screens  */}
         <Link className="navbar-brand logo d-none d-lg-block" href="/">
-          <Image src={PurpleIcon} alt="" />
+          <Image src={PurpleLogo} alt="" />
         </Link>
         {/* Logo for small screens  */}
         <Link className="icon-logo d-block d-lg-none" href="/">
@@ -51,44 +54,57 @@ export default function NavBar() {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <Link
+                    onClick={() =>
+                      (window.location.href = "/guidelines#pills-hackathon")
+                    }
                     id="hackathonNavItem"
                     className="dropdown-item"
-                    href="guidelines#pills-hackathon-tab"
+                    href="/guidelines#pills-hackathon"
                   >
                     Hackathon
                   </Link>
                 </li>
                 <li>
                   <Link
+                    onClick={() =>
+                      (window.location.href = "/guidelines#pills-debuggers")
+                    }
                     id="debuggersNavItem"
                     className="dropdown-item"
-                    href="guidelines#pills-debuggers-tab"
+                    href="/guidelines#pills-debuggers"
                   >
                     Debuggers
                   </Link>
                 </li>
                 <li>
                   <Link
+                    onClick={() =>
+                      (window.location.href =
+                        "/guidelines#pills-database-wizards")
+                    }
                     id="databaseWizardNavItem"
                     className="dropdown-item"
-                    href="guidelines#pills-database-wizards-tab"
+                    href="/guidelines#pills-database-wizards"
                   >
                     Database Wizards
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
+                  onClick={() =>
+                    (window.location.href = "/guidelines#pills-cpc")
+                  }
                     id="competitiveProgrammingNavItem"
                     className="dropdown-item"
-                    href="guidelines#pills-cpc-tab"
+                    href="/guidelines#pills-cpc"
                   >
                     Competitive Programming
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="registration">
+              <Link className="nav-link" href="/registration">
                 Registration
               </Link>
             </li>

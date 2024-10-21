@@ -1,12 +1,42 @@
+"use client";
+
 import { importantDates, tabContents, tabItems } from "@/lib/data";
-import TabItem from "../components/guidelines/tab/TabItem";
-import TabList from "../components/guidelines/tab/TabList";
+import { useEffect, useState } from "react";
+import ImportantDate from "../components/guidelines/ImportantDate";
 import Tab from "../components/guidelines/tab/Tab";
 import TabContent from "../components/guidelines/tab/TabContent";
 import TabContents from "../components/guidelines/tab/TabContents";
-import ImportantDate from "../components/guidelines/ImportantDate";
+import TabItem from "../components/guidelines/tab/TabItem";
+import TabList from "../components/guidelines/tab/TabList";
 
 export default function Guidelines() {
+  const [selectedTab, setSelectedTab] = useState(tabItems[0].id); // Default to the first tab
+
+  // Function to change tab based on hash
+  const handleHashChange = () => {
+    const currentHash = window.location.hash.replace("#", "");
+    if (currentHash) {
+      const matchedTab = tabItems.find((tab) => tab.id === currentHash);
+      if (matchedTab) {
+        setSelectedTab(matchedTab.id);
+      }
+    }
+  };
+
+  // Effect to detect URL hash change
+  useEffect(() => {
+    // Set the tab based on the initial hash
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashChange);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <>
       <div className="main-container mb-8">
@@ -20,22 +50,26 @@ export default function Guidelines() {
                   key={i}
                   id={tab.id}
                   label={tab.label}
-                  selected={tab.selected}
+                  selected={tab.id === selectedTab}
+                  onClick={() => setSelectedTab(tab.id)}
                 />
               ))}
             </TabList>
+
             {/* Tab Content */}
             <TabContents>
-              {tabContents.map((c, i) => (
+              {tabContents.map((content, i) => (
                 <TabContent
-                  content={c.content}
-                  id={c.id}
-                  selected={c.selected}
                   key={i}
+                  id={content.id}
+                  selected={content.id === selectedTab}
+                  content={content.content}
                 />
               ))}
             </TabContents>
           </Tab>
+
+          {/* Important Dates Section */}
           <div className="mt-8 bg-gray-100 shadow-md">
             <div className="py-6 px-4 important-dates flex flex-col items-center">
               <button
@@ -48,7 +82,6 @@ export default function Guidelines() {
                 Important Dates
               </button>
               <div className="w-full">
-                {/* <!-- Added a wrapper with width to control the collapse width --> */}
                 <div
                   className="collapse px-8 mt-8 text-left"
                   id="importantDatesCollapse"

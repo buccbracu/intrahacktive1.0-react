@@ -22,7 +22,7 @@ const hackathonSuccessMail = async (
   gSuite: string,
   category: string,
   teamName: string,
-  projectName: string,
+  // projectName: string,
   projectPlan: string,
   mem1Name: string,
   mem1Email: string,
@@ -39,7 +39,7 @@ const hackathonSuccessMail = async (
         gSuite,
         category,
         teamName,
-        projectName,
+        // projectName,
         projectPlan,
         mem1Name,
         mem1Email,
@@ -162,8 +162,8 @@ const cPCSuccessMail = async (
 };
 
 export {
-  hackathonSuccessMail,
-  debuggerSuccessMail,
-  databaseWizardsSuccessMail,
   cPCSuccessMail,
+  databaseWizardsSuccessMail,
+  debuggerSuccessMail,
+  hackathonSuccessMail,
 };

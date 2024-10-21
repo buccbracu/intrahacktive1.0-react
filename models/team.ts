@@ -8,7 +8,7 @@ const memberSchema = new mongoose.Schema({
   gSuite: {
     type: String,
     required: true,
-    match: /@g\.bracu\.ac\.bd$/,
+    // match: /@g\.bracu\.ac\.bd$/,
   },
   phone: {
     type: String,
@@ -38,9 +38,9 @@ const teamSchema = new mongoose.Schema({
   teamName: {
     type: String,
   },
-  projectName: {
-    type: String,
-  },
+  // projectName: {
+  //   type: String,
+  // },
   projectPlan: {
     type: String,
   },

@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Logo from "@/app/img/logo/bucc-logo-full.svg";
-import Link from "next/link";
 import {
   finalRoundEvents,
   onlinePreliminaryEvents,
   segments,
 } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
 import Event from "./components/home/Event";
 import Segment from "./components/home/Segment";
 export default function Home() {
@@ -84,11 +84,12 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 text-center primary-color">
             Segments
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {/* <!-- Segments --> */}
             {segments.map((segment, i) => (
               <Segment
                 key={i}
+                id={segment.id}
                 description={segment.description}
                 imgAlt={segment.imgAlt}
                 imgSrc={segment.imgSrc}

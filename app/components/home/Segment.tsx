@@ -4,7 +4,12 @@ import Link from "next/link";
 
 type SegmentProps = ISegment;
 
-export default function Segment({ imgSrc, imgAlt, description }: SegmentProps) {
+export default function Segment({
+  id,
+  imgSrc,
+  imgAlt,
+  description,
+}: SegmentProps) {
   return (
     <div className="bg-white rounded-lg shadow-md p-3 flex flex-col justify-between h-full">
       <div>
@@ -15,7 +20,7 @@ export default function Segment({ imgSrc, imgAlt, description }: SegmentProps) {
         <div className="flex justify-center mt-8">
           <div className="flex flex-row items-center gap-8">
             <Link
-              href="guidelines"
+              href={`guidelines#${id}`}
               className="text-decoration-none text-white py-2 px-3 rounded-md guidelines-btn"
             >
               Guidelines
