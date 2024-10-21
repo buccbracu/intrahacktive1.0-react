@@ -119,7 +119,7 @@ export default function Home() {
             <hr className="hidden md:block border-t border-gray-300 my-0 mx-8 md:h-12 md:w-0" />
             <hr className="block md:hidden border-t border-gray-300 my-8 w-full" />
             {/* <!-- Contact Details --> */}
-            <div className="text-gray-700 text-center md:text-left md:text-left md:w-auto">
+            <div className="text-gray-700 text-center md:text-left md:w-auto">
               {/* <!-- For large screens, text alignment to the left --> */}
               <p className="md:text-left">Contact Number: +8801717399105</p>
               <p className="md:text-left">
