@@ -8,6 +8,11 @@ import TabContent from "../components/guidelines/tab/TabContent";
 import TabContents from "../components/guidelines/tab/TabContents";
 import TabItem from "../components/guidelines/tab/TabItem";
 import TabList from "../components/guidelines/tab/TabList";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 export default function Guidelines() {
   const [selectedTab, setSelectedTab] = useState(tabItems[0].id); // Default to the first tab
@@ -72,7 +77,28 @@ export default function Guidelines() {
           {/* Important Dates Section */}
           <div className="mt-8 bg-gray-100 shadow-md">
             <div className="py-6 px-4 important-dates flex flex-col items-center">
-              <button
+              <Collapsible className="w-full flex flex-col ">
+                <CollapsibleTrigger className="m-auto mb-4 text-lg font-semibold min-w-[40%] text-white rounded-md px-8 py-2 max-md:text-md">
+                  Important Dates
+                </CollapsibleTrigger>
+                <CollapsibleContent className="CollapsibleContent">
+                  <div className="px-8 mt-8 text-left">
+                    <ul className="list-none pl-0">
+                      {importantDates.map((el, i) => (
+                        <ImportantDate
+                          key={i}
+                          date={el.date}
+                          description={el.description}
+                          label={el.label}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+
+              {/* Legacy Collapsible */}
+              {/* <button
                 className="btn btn-primary mb-4 text-md font-semibold w-full md:w-1/3 md:text-lg"
                 data-bs-toggle="collapse"
                 data-bs-target="#importantDatesCollapse"
@@ -97,7 +123,7 @@ export default function Guidelines() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="primary-bg-color px-4 py-3 rounded-md rounded-t-none">
               <p className="text-sm text-white">

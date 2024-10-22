@@ -4,6 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import PurpleIcon from "../img/logo/intrahacktive-icon-purple.png";
 import PurpleLogo from "../img/logo/intrahacktive-logo-purple-white.png";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronsUpDownIcon } from "lucide-react";
 
 // import styles from "@/app/styles.module.css";
 
@@ -20,8 +34,62 @@ export default function NavBar() {
           <Image src={PurpleIcon} alt="" />
         </Link>
 
+        {/* Navigation for small screens */}
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="navbar-toggler"></NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink href="/">Home</NavigationMenuLink>
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center justify-between">
+                    Guidelines <ChevronsUpDownIcon className="ml-16" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="CollapsibleContent flex flex-col gap-4 ml-4">
+                    <Link
+                      onClick={() =>
+                        (window.location.href = "/guidelines#pills-hackathon")
+                      }
+                      id="hackathonNavItem"
+                      className="dropdown-item mt-4"
+                      href="/guidelines#pills-hackathon"
+                    >
+                      Hackathon
+                    </Link>
+                    <Link
+                      onClick={() =>
+                        (window.location.href = "/guidelines#pills-debuggers")
+                      }
+                      id="debuggersNavItem"
+                      className="dropdown-item"
+                      href="/guidelines#pills-debuggers"
+                    >
+                      Debuggers
+                    </Link>
+                    <Link
+                      onClick={() =>
+                        (window.location.href =
+                          "/guidelines#pills-database-wizards")
+                      }
+                      id="databaseWizardNavItem"
+                      className="dropdown-item"
+                      href="/guidelines#pills-database-wizards"
+                    >
+                      Database Wizards
+                    </Link>
+                  </CollapsibleContent>
+                </Collapsible>
+                <NavigationMenuLink href="/registration">
+                  Registration
+                </NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* LEGACY NAVIGATION FOR MOBILE */}
         {/* Button for toggling the navbar */}
-        <button
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -31,9 +99,9 @@ export default function NavBar() {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
         {/* Navbar links */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+        {/* <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" href="/">
@@ -88,8 +156,8 @@ export default function NavBar() {
                   >
                     Database Wizards
                   </Link>
-                </li>
-                {/* <li>
+                </li> */}
+        {/* <li>
                   <Link
                   onClick={() =>
                     (window.location.href = "/guidelines#pills-cpc")
@@ -101,7 +169,7 @@ export default function NavBar() {
                     Competitive Programming
                   </Link>
                 </li> */}
-              </ul>
+        {/* </ul>
             </li>
             <li className="nav-item">
               <Link className="nav-link" href="/registration">
@@ -109,7 +177,7 @@ export default function NavBar() {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
