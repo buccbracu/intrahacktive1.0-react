@@ -15,31 +15,49 @@ import {
 
 export const onlinePreliminaryEvents: IOnlinePreliminaryEvents[] = [
   {
-    date: new Date("2024-04-10"),
+    date: new Date("2024-10-24"),
     title: "Registration Opens",
     description:
       "Registration for IntraHacktive 1.0 begins. Participants can register online through the website.",
   },
   {
-    date: new Date("2024-04-11"),
-    title: "Online Coding Challenge",
+    date: new Date("2024-10-28"),
+    title: "Debuggers and Database Wizard Deadline",
     description:
-      "Participate in our online coding challenge to test your problem-solving skills.",
+      "Submission deadline for Debuggers and Database Wizard challenges. Ensure your submissions are completed by this date.",
+  },
+  {
+    date: new Date("2024-10-31"),
+    title: "Hackathon Deadline",
+    description:
+      "Submission deadline for the high-level solution and video presentation for the Hackathon. Teams will be shortlisted based on this submission.",
   },
 ];
 
 export const finalRoundEvents: IFinalRoundEvents[] = [
   {
-    date: new Date("2024-04-12"),
-    title: "Hackathon",
+    date: new Date("2024-11-03"),
+    title: "Online Round for Debuggers & Database Wizard",
     description:
-      "RJoin the thrilling hackathon where participants will collaborate, innovate, and build exciting projects within a limited timeframe.",
+      "Compete in the online preliminary round for Debuggers and Database Wizard. Participants will be tested on their debugging skills or database management expertise.",
   },
   {
-    date: new Date("2024-04-13"),
-    title: "Final Presentations",
+    date: new Date("2024-11-08"),
+    title: "Online Hackathon Begins",
     description:
-      "Finalists will present their projects to a panel of judges. Winners will be announced at the end of the event.",
+      "The online Hackathon starts. Teams will receive a contained version of their preliminary problem statement and must create a product within 72 hours.",
+  },
+  {
+    date: new Date("2024-11-10"),
+    title: "Online Hackathon Ends",
+    description:
+      "The 72-hour online Hackathon comes to an end. Submissions must be made before the deadline.",
+  },
+  {
+    date: new Date("2024-11-11"),
+    title: "Final Round and Presentations",
+    description:
+      "On-campus final round for Hackathon, Debuggers, and Database Wizard. Teams will polish their products for Hackathon and present their solution to judges. For Debuggers and Database Wizards there will be a offline competition.",
   },
 ];
 
@@ -126,27 +144,42 @@ export const tabContents: ITabContent[] = [
 export const importantDates: IImportantDate[] = [
   {
     label: "Registration begins",
-    date: new Date("2024-04-15"),
+    date: new Date("2024-10-24"),
     description: "Starting point for the event registration process.",
   },
   {
-    label: "Registration closes",
-    date: new Date("2024-04-19"),
-    description: "Deadline for completing the event registration.",
+    label: "Debuggers & Database Wizard Registration Deadline",
+    date: new Date("2024-10-28"),
+    description: "Deadline for Debuggers and Database Wizard registration.",
   },
   {
-    label: "Online preliminary rounds",
-    date: [new Date("2024-04-20"), new Date("2024-04-23")],
-    description: "Online rounds to select participants for the final rounds.",
+    label: "Hackathon Registration Deadline",
+    date: new Date("2024-10-31"),
+    description:
+      "Deadline for registration along with submitting high-level solutions and video presentations for the Hackathon.",
+  },
+  {
+    label: "Online preliminary rounds for Debuggers & Database Wizard",
+    date: new Date("2024-11-03"),
+    description:
+      "Online preliminary rounds to select participants for the final rounds of Debuggers and Database Wizard.",
+  },
+  {
+    label: "Online Hackathon",
+    date: [new Date("2024-11-08"), new Date("2024-11-10")],
+    description:
+      "72-hour online hackathon where participants will create a product based on a problem statement.",
   },
   {
     label: "Onsite final rounds",
-    date: [new Date("2024-05-26"), new Date("2024-05-30")],
-    description: "Final competition rounds conducted on-site.",
+    date: new Date("2024-11-11"),
+    description:
+      "Final round held on campus for Hackathon, Debuggers, and Database Wizard participants.",
   },
   {
-    label: "Prize-giving ceremony",
-    date: [new Date("2024-05-26"), new Date("2024-05-30")],
-    description: "Announcement of winners and distribution of prizes.",
+    label: "Final Presentations & Prize-giving ceremony",
+    date: new Date("2024-11-11"),
+    description:
+      "Final presentations and prize-giving ceremony for Hackathon, Debuggers, and Database Wizard competitions.",
   },
 ];

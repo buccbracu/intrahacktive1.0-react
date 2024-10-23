@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Event from "./components/home/Event";
 import Segment from "./components/home/Segment";
+import PartnersSection from "./components/Sponsor";
 export default function Home() {
   return (
     <>
@@ -37,13 +38,13 @@ export default function Home() {
             Event Details
           </h2>
           <div className="flex flex-col md:flex-row md:space-x-8">
-            {/* <!-- Online Preliminary Events --> */}
+            {/* <!-- Registration --> */}
             <div className="md:w-1/2">
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold mb-4 secondary-color">
-                  Online Preliminary Events
+                  Registration
                 </h3>
-                {/* <!-- Online Preliminary Events --> */}
+                {/* <!-- Registration --> */}
                 {onlinePreliminaryEvents.map((e, i) => (
                   <Event
                     date={e.date}
@@ -55,13 +56,13 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            {/* <!-- Final Round Events --> */}
+            {/* <!-- Events --> */}
             <div className="md:w-1/2">
               <div>
                 <h3 className="text-2xl font-semibold mb-4 secondary-color">
-                  Final Round Events
+                  Events
                 </h3>
-                {/* <!-- Final Round Events --> */}
+                {/* <!-- Events --> */}
                 {finalRoundEvents.map((e, i) => (
                   <Event
                     date={e.date}
@@ -96,6 +97,13 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/*<!-- Sponsors -->*/}
+      <section className="bg-gray-00 py-16">
+        <div className="container mx-auto">
+          <PartnersSection />
         </div>
       </section>
 
