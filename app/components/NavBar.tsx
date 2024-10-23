@@ -17,25 +17,32 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChevronsUpDownIcon } from "lucide-react";
+import { ChevronDown, ChevronsUpDownIcon } from "lucide-react";
+import {
+  DesktopNavigationMenu,
+  DesktopNavigationMenuList,
+  DesktopNavigationMenuItem,
+  DesktopNavigationMenuTrigger,
+  DesktopNavigationMenuContent,
+} from "@/components/ui/navigation-menu-navbar";
 
 // import styles from "@/app/styles.module.css";
 
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container">
+    <nav className="navbar  navbar-dark bg-primary">
+      <div className="flex items-center justify-between w-full px-4">
         {/* Logo for medium and large screens  */}
-        <Link className="navbar-brand logo d-none d-lg-block" href="/">
+        <Link className="navbar-brand logo max-md:hidden " href="/">
           <Image src={PurpleLogo} alt="" />
         </Link>
         {/* Logo for small screens  */}
-        <Link className="icon-logo d-block d-lg-none" href="/">
+        <Link className="icon-logo md:hidden" href="/">
           <Image src={PurpleIcon} alt="" />
         </Link>
 
         {/* Navigation for small screens */}
-        <NavigationMenu>
+        <NavigationMenu className="md:hidden">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="navbar-toggler"></NavigationMenuTrigger>
@@ -86,6 +93,64 @@ export default function NavBar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* Navigation for medium and large screens */}
+        <div className="flex items-center gap-4 max-md:hidden">
+          <Link
+            className="text-[rgba(255,255,255,0.55)] font-semibold"
+            href={"/"}
+          >
+            Home
+          </Link>
+          <DesktopNavigationMenu>
+            <DesktopNavigationMenuList>
+              <DesktopNavigationMenuItem>
+                <DesktopNavigationMenuTrigger className="text-[rgba(255,255,255,0.55)] font-semibold bg-none hover:bg-none focus:bg-none flex items-center">
+                  Guidelines <ChevronDown size={16} className="ml-2" />
+                </DesktopNavigationMenuTrigger>
+                <DesktopNavigationMenuContent>
+                  <Link
+                    onClick={() =>
+                      (window.location.href = "/guidelines#pills-hackathon")
+                    }
+                    id="hackathonNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/guidelines#pills-hackathon"
+                  >
+                    Hackathon
+                  </Link>
+                  <Link
+                    onClick={() =>
+                      (window.location.href = "/guidelines#pills-debuggers")
+                    }
+                    id="debuggersNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/guidelines#pills-debuggers"
+                  >
+                    Debuggers
+                  </Link>
+                  <Link
+                    onClick={() =>
+                      (window.location.href =
+                        "/guidelines#pills-database-wizards")
+                    }
+                    id="databaseWizardNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/guidelines#pills-database-wizards"
+                  >
+                    Database Wizards
+                  </Link>
+                </DesktopNavigationMenuContent>
+              </DesktopNavigationMenuItem>
+            </DesktopNavigationMenuList>
+          </DesktopNavigationMenu>
+          <Link
+            className="text-[rgba(255,255,255,0.55)] font-semibold"
+            href={"/registration"}
+          >
+            Registration
+          </Link>
+        </div>
 
         {/* LEGACY NAVIGATION FOR MOBILE */}
         {/* Button for toggling the navbar */}
