@@ -61,12 +61,13 @@ export default function HackathonGuideline() {
               </strong>{" "}
               Participants will register for the Hackathon by submitting a
               solution to the provided high-level{" "}
-              <b className="primary-color">
+              <b className="primary-color ">
                 <a
+                  className="underline-offset-2 underline"
                   target="_blank"
                   href="https://docs.google.com/document/d/e/2PACX-1vT8U22zICL4dd63MeMpYfCnPi0rCKD9e2RzhGFAfUeEmu9AGHVlEmJCuWe94BM2Ci7lcWY3fcMYfiY1/pub"
                 >
-                  problem statement
+                  problem statement <span>&#10548;</span>
                 </a>
               </b>
               . This will include documentation of their approach, key features,

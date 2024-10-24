@@ -305,11 +305,22 @@ export default function Registration() {
           provided is accurate and valid. Inaccurate or incomplete registrations
           will be considered null and void. Before proceeding, make sure to read
           the{" "}
-          <a href="guidelines" className="underline hover:text-blue-600">
-            registration guidelines
-          </a>
-          .
-          <br />
+          <b className="primary-color">
+            <a href="guidelines" className="underline hover:text-blue-600">
+              registration guidelines
+            </a>
+          </b>
+          . Also there is a{" "}
+          <b className="primary-color">
+            <a
+              className="underline"
+              target="_blank"
+              href="https://docs.google.com/document/d/e/2PACX-1vT8U22zICL4dd63MeMpYfCnPi0rCKD9e2RzhGFAfUeEmu9AGHVlEmJCuWe94BM2Ci7lcWY3fcMYfiY1/pub"
+            >
+              problem statement <span>&#10548;</span>
+            </a>
+          </b>{" "}
+          for the Hackathon registration. <br /> <br />
           <strong className="primary-color">
             Upon successful registration, you will receive an email
             confirmation. Email sending may take up to 5 to 30 mins. Please
