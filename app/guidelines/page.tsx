@@ -13,6 +13,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import SelectedTeams from "../components/selected-teams/SelectedTeams";
 
 export default function Guidelines() {
   const [selectedTab, setSelectedTab] = useState(tabItems[0].id); // Default to the first tab
@@ -73,6 +74,8 @@ export default function Guidelines() {
               ))}
             </TabContents>
           </Tab>
+
+          
 
           {/* Important Dates Section */}
           <div className="mt-8 bg-gray-100 shadow-md">
