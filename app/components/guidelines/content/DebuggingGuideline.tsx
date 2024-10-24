@@ -15,20 +15,48 @@ export default function DebuggingGuideline() {
           <ul className="list-disc pl-8">
             <li className="mb-4">
               <strong>Online Round:</strong> Participants will compete in an
-              online debugging challenge. Based on their performance, top
-              participants will qualify for the final round.
+              online proctored coding challenge. This will be to test the basics
+              of the participants. Based on their performance, top participants
+              will qualify for the final round.
             </li>
             <li className="mb-4">
               <strong>Onsite Final Round:</strong> Finalists will compete in a
               live debugging challenge held on campus, where they will be given
-              more complex code snippets to debug.
+              more complex code snippets to debug. The questions will have many
+              bugs like logical errors, syntax errors, etc. The participants
+              have to find and fix them within a limited time.
             </li>
           </ul>
         </li>
         <li className="mb-4">
+          <strong>Proctored Guidelines:</strong> The online round will be
+          proctored to ensure fairness and integrity. Participants must follow
+          the proctoring guidelines provided during the competition.
+          Participants must take the exam using a laptop or{" "}
+          <b>PC equipped with a webcam</b>. The exam will be auto-proctored, so
+          participants needs to ensure that their setup is ready before the exam
+          starts.
+          <br /> During the test, <b>
+            switching tabs is strictly prohibited
+          </b>{" "}
+          and will result in disqualification. Our proctoring software will
+          monitor all activities and detect any attempts to switch tabs or leave
+          the exam window.
+        </li>
+        <li className="mb-4">
+          <strong>Fees:</strong> There is a registration fee of <b>100 BDT</b>{" "}
+          per participants. No fees are required for the online preliminary
+          round. But upon selection for the final round participants will have
+          to pay the registration fee. The fee must be paid before the deadline
+          to confirm participation. If selected participants do not complete the
+          payment by the deadline, participants from the waiting list will be
+          invited to fill the available spots.
+        </li>
+        <li className="mb-4">
           <strong>Languages:</strong> Participants can choose to debug code
           written in either Python or Java, providing flexibility to work in
-          their preferred language.
+          their preferred language. The code snippets will be provided in the
+          two languages.
         </li>
         <li className="mb-4">
           <strong>Challenge:</strong> Participants will be given code snippets
@@ -37,8 +65,8 @@ export default function DebuggingGuideline() {
         </li>
         <li className="mb-4">
           <strong>Scoring:</strong> Participants will earn points based on the
-          number of bugs they successfully identify and fix. Extra points may be
-          awarded for more efficient solutions.
+          number of bugs they successfully identify and fix. The more bugs they
+          fix, the higher their score.
         </li>
         <li className="mb-4">
           <strong>Ranking:</strong> Participants will be ranked based on their
@@ -46,19 +74,16 @@ export default function DebuggingGuideline() {
           challenge in a shorter time will be ranked higher.
         </li>
         <li className="mb-4">
-          <strong>Fees:</strong> A registration fee of 100 BDT is required after
-          the final selection round. If selected participants fail to make the
-          payment, others from the waiting list will be chosen to take their
-          place.
-        </li>
-        <li className="mb-4">
           <strong>Finals:</strong> Top-performing participants from the online
           round will advance to the onsite finals, where they will compete in a
           live debugging challenge.
         </li>
         <li className="mb-4">
-          <strong>Prizes:</strong> Prizes will be awarded to the top 3 winners
-          of the Debugging Competition based on their performance in the finals.
+          <strong>Prizes:</strong> There is a prize money of <b>10000 BDT</b>{" "}
+          for the Debuggers. Prizes will be awarded to the top 3 winners of the
+          Debugging Competition based on their performance in the finals. The
+          winning participants will receive awards and recognition during the
+          prize-giving ceremony.
         </li>
         <li className="mb-4">
           <strong>Code of Conduct:</strong> Participants are expected to
