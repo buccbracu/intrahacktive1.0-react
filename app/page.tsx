@@ -15,6 +15,8 @@ export default function Home() {
       {/* Section 1 */}
       <section className="bg-blue-900 text-white py-16 hero-section flex items-center">
         <div className="container mx-auto text-center">
+          <p className="text-4xl font-bold mb-4">Prize pool of </p>
+          <h1 className="text-9xl font-bold mb-4">50000 BDT</h1>
           <h1 className="text-4xl font-bold mb-4">
             Ready to take on the challenge?
           </h1>
