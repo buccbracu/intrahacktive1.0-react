@@ -100,7 +100,7 @@ export default function Registration() {
               >
                 <option value="">Select Level</option>
                 <option value="Senior">Senior (Done with CSE370)</option>
-                <option value="Junior">Junior (Up to CSE220)</option>
+                <option value="Junior">Junior (Up to CSE221)</option>
               </select>
             </div>
           </div>

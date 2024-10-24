@@ -24,13 +24,13 @@ export const onlinePreliminaryEvents: IOnlinePreliminaryEvents[] = [
     date: new Date("2024-10-28"),
     title: "Debuggers and Database Wizard Deadline",
     description:
-      "Submission deadline for Debuggers and Database Wizard challenges. Ensure your submissions are completed by this date.",
+      "Registration deadline for Debuggers and Database Wizard challenges. Ensure your registration are completed by this date.",
   },
   {
     date: new Date("2024-10-31"),
     title: "Hackathon Deadline",
     description:
-      "Submission deadline for the high-level solution and video presentation for the Hackathon. Teams will be shortlisted based on this submission.",
+      "Registration along with the submission deadline for the high-level solution and video presentation for the Hackathon. Teams will be shortlisted based on this submission.",
   },
 ];
 
