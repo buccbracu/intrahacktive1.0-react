@@ -11,6 +11,7 @@ import {
     TableRow,
   } from "@/components/ui/table"
 import { TeamType } from "@/models/team"
+import { SearchIcon } from "lucide-react"
 import { useEffect, useState } from "react"
   
   
@@ -40,14 +41,17 @@ import { useEffect, useState } from "react"
             Selected Teams
         </h2>
         <div className="flex items-center justify-end">
-            <Input placeholder="Search" value={query} onChange={e=> setquery(e.target.value)}/>
+            <div className="flex items-center">
+                {/* <SearchIcon size={24} className="text-primary"/> */}
+                <Input placeholder="Search" className="font-medium border-primary transition-all ease-in-out duration-150 w-[150px] focus:w-[170px]" value={query} onChange={e=> setquery(e.target.value)}/>
+            </div>
         </div>
-      <Table>
+      <Table className="mt-3">
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Team ID</TableHead>
+          <TableRow className="[&>*]:font-semibold [&>*]:text-white bg-gradient-to-l from-gdStart to-gdEnd">
+            <TableHead className="w-[100px] rounded-tl-md">Team ID</TableHead>
             <TableHead>Team</TableHead>
-            <TableHead>Institution</TableHead>
+            <TableHead className="text-right rounded-tr-md">Category</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -55,6 +59,7 @@ import { useEffect, useState } from "react"
             <TableRow key={new Date(team.createdAt).getTime()}>
               <TableCell className="font-medium">{"team._id"}</TableCell>
               <TableCell>{team.teamName}</TableCell>
+              <TableCell className="text-right">Junior</TableCell>
             </TableRow>
           ))}
         </TableBody>
