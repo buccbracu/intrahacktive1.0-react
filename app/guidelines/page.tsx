@@ -75,7 +75,6 @@ export default function Guidelines() {
             </TabContents>
           </Tab>
 
-          <SelectedTeams teams={[]}/>
 
           {/* Important Dates Section */}
           <div className="mt-8 bg-gray-100 shadow-md">
