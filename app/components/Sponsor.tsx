@@ -6,6 +6,7 @@ import ComputerManiaLogo from "@/app/img/sponsors/computer-mania-logo.png";
 import DailySunLogo from "@/app/img/sponsors/daily-sun-logo.png";
 import DataSolutionLogo from "@/app/img/sponsors/data-solution-360-logo.png";
 import RadioLogo from "@/app/img/sponsors/radio-today-89-6-fm-logo.png";
+import ZDLogo from "@/app/img/sponsors/zaylen-digital-logo.png";
 import Image from "next/image";
 
 export default function PartnersSection() {
@@ -27,6 +28,12 @@ export default function PartnersSection() {
       alt: "Data Solution 360",
       label: "Supported By",
       link: "https://datasolution360.com",
+    },
+    {
+      imgSrc: ZDLogo,
+      alt: "Zaylen Digital",
+      label: "Tech Partner",
+      link: "https://zaylendigital.com",
     },
     {
       imgSrc: DailySunLogo,
@@ -75,7 +82,7 @@ export default function PartnersSection() {
       </div>
 
       {/* Second Row: Other Sponsors */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-8 text-center ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 justify-center items-center gap-8 text-center ">
         {partners.slice(2).map((partner, index) => (
           <div
             onClick={() => window.open(partner.link, "_blank")}

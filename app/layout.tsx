@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import Head from "next/head";
 import { Toaster } from "sonner";
+import AnnouncementBar from "./components/announcement-bar";
 import BootstrapClient from "./components/BootstrapClient";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
@@ -46,6 +47,7 @@ export default function RootLayout({
         />
       </Head>
       <body className={spaceGrotesk.className}>
+        <AnnouncementBar />
         <NavBar />
         <Toaster position="bottom-right" richColors />
         {children}

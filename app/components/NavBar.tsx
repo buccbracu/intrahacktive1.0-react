@@ -30,6 +30,7 @@ import PurpleLogo from "../img/logo/intrahacktive-logo-purple-white.png";
 
 export default function NavBar() {
   return (
+    // Navbar
     <nav className="navbar  navbar-dark bg-primary">
       <div className="flex items-center justify-between w-full px-4">
         {/* Logo for medium and large screens  */}
