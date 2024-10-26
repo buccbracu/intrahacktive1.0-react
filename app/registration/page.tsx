@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -143,7 +144,16 @@ export default function Registration() {
       </div> */}
       <div className="mb-4">
         <label htmlFor="projectPlan" className="block mb-1">
-          Project Plan (Drive Link):
+          Project Plan (Drive Link):{" "}
+          <b className="primary-color ">
+            <a
+              className="underline-offset-2 underline"
+              target="_blank"
+              href="https://docs.google.com/document/d/e/2PACX-1vT8U22zICL4dd63MeMpYfCnPi0rCKD9e2RzhGFAfUeEmu9AGHVlEmJCuWe94BM2Ci7lcWY3fcMYfiY1/pub"
+            >
+              problem statement <span>&#10548;</span>
+            </a>
+          </b>
         </label>
         <input
           onChange={handleInputChange}
@@ -154,6 +164,16 @@ export default function Registration() {
           required
           className="w-full border rounded-md px-4 py-2"
         />
+        <p className="w-full text-justify mt-2 font-medium text-red-500">
+          Please Note that you&apos;ll have to work on a given problem
+          statement. Please{" "}
+          <Link
+            className="text-semibold underline"
+            href={"/guidelines#pills-hackathon"}
+          >
+            click here to learn more!
+          </Link>
+        </p>
       </div>
       {addMemberFields(3)}
     </div>
