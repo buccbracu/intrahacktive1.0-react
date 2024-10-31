@@ -369,8 +369,8 @@ export default function Registration() {
           >
             <option value="">Select Category</option>
             <option value="Hackathon">Hackathon</option>
-            <option value="Debuggers">Debuggers</option>
-            <option value="Database Wizards">Database Wizards</option>
+            {/* <option value="Debuggers">Debuggers</option> */}
+            {/* <option value="Database Wizards">Database Wizards</option> */}
             {/* <option value="CPC">CPC</option> */}
           </select>
         </div>
