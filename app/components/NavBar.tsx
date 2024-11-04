@@ -90,6 +90,47 @@ export default function NavBar() {
                     </Link>
                   </CollapsibleContent>
                 </Collapsible>
+                <Collapsible>
+                  <CollapsibleTrigger className="flex items-center justify-between">
+                    <p onClick={() => (window.location.href = "/results")}>
+                      Results
+                    </p>{" "}
+                    <ChevronsUpDownIcon className="ml-16" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="CollapsibleContent flex flex-col gap-4 ml-4">
+                    <Link
+                      onClick={() =>
+                        (window.location.href = "/results#pills-hackathon")
+                      }
+                      id="hackathonNavItem"
+                      className="dropdown-item mt-4"
+                      href="/results#pills-hackathon"
+                    >
+                      Hackathon
+                    </Link>
+                    <Link
+                      onClick={() =>
+                        (window.location.href = "/results#pills-debuggers")
+                      }
+                      id="debuggersNavItem"
+                      className="dropdown-item"
+                      href="/results#pills-debuggers"
+                    >
+                      Debuggers
+                    </Link>
+                    <Link
+                      onClick={() =>
+                        (window.location.href =
+                          "/results#pills-database-wizards")
+                      }
+                      id="databaseWizardNavItem"
+                      className="dropdown-item"
+                      href="/results#pills-database-wizards"
+                    >
+                      Database Wizards
+                    </Link>
+                  </CollapsibleContent>
+                </Collapsible>
                 <NavigationMenuLink href="/registration">
                   Registration
                 </NavigationMenuLink>
@@ -146,8 +187,52 @@ export default function NavBar() {
                   </Link>
                 </DesktopNavigationMenuContent>
               </DesktopNavigationMenuItem>
+              
             </DesktopNavigationMenuList>
           </DesktopNavigationMenu>
+          <DesktopNavigationMenu>
+            <DesktopNavigationMenuList>
+              <DesktopNavigationMenuItem>
+                <DesktopNavigationMenuTrigger className="text-[rgba(255,255,255,0.55)] font-semibold bg-none hover:bg-none focus:bg-none flex items-center">
+                  Results <ChevronDown size={16} className="ml-2" />
+                </DesktopNavigationMenuTrigger>
+                <DesktopNavigationMenuContent>
+                  <Link
+                    onClick={() =>
+                      (window.location.href = "/results#pills-hackathon")
+                    }
+                    id="hackathonNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/results#pills-hackathon"
+                  >
+                    Hackathon
+                  </Link>
+                  <Link
+                    onClick={() =>
+                      (window.location.href = "/results#pills-debuggers")
+                    }
+                    id="debuggersNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/results#pills-debuggers"
+                  >
+                    Debuggers
+                  </Link>
+                  <Link
+                    onClick={() =>
+                      (window.location.href =
+                        "/results#pills-database-wizards")
+                    }
+                    id="databaseWizardNavItem"
+                    className="dropdown-item p-2 rounded-md hover:bg-slate-800 hover:text-white transition-colors duration-75"
+                    href="/results#pills-database-wizards"
+                  >
+                    Database Wizards
+                  </Link>
+                </DesktopNavigationMenuContent>
+              </DesktopNavigationMenuItem>
+              
+            </DesktopNavigationMenuList>
+          </DesktopNavigationMenu>s
           <Link
             className="text-[rgba(255,255,255,0.55)] font-semibold"
             href={"/registration"}
