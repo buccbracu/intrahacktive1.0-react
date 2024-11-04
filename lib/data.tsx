@@ -12,6 +12,9 @@ import {
   ITabContent,
   ITabItem,
 } from "./data.types";
+import HackathonResult from "@/app/components/selected-teams/contents/HackathonResult";
+import DebuggerResult from "@/app/components/selected-teams/contents/DebuggerResult";
+import DatabaseWizardResult from "@/app/components/selected-teams/contents/DatabaseWizardResult";
 
 export const onlinePreliminaryEvents: IOnlinePreliminaryEvents[] = [
   {
@@ -132,6 +135,29 @@ export const tabContents: ITabContent[] = [
   {
     id: "pills-database-wizards",
     content: DBWizardGuideline,
+    selected: false,
+  },
+  // {
+  //   id: "pills-cpc",
+  //   content: CPCGuideline,
+  //   selected: false,
+  // },
+];
+
+export const resultTabContents: ITabContent[] = [
+  {
+    id: "pills-hackathon",
+    content: HackathonResult,
+    selected: true,
+  },
+  {
+    id: "pills-debuggers",
+    content: DebuggerResult,
+    selected: false,
+  },
+  {
+    id: "pills-database-wizards",
+    content: DatabaseWizardResult,
     selected: false,
   },
   // {
