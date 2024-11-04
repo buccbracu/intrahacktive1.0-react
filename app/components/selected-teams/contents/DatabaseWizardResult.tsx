@@ -1,8 +1,11 @@
 import React from 'react'
+import SelectedTeams from '../SelectedTeams'
 
 const DatabaseWizardResult = () => {
   return (
-    <div>DatabaseWizardResult</div>
+    <div>
+        <SelectedTeams teams={[]}/>
+    </div>
   )
 }
 

@@ -37,9 +37,6 @@ import { useEffect, useState } from "react"
     
     return (
         <>
-        <h2 className="text-3xl font-bold primary-color mt-8 mb-8 text-center">
-            Selected Teams
-        </h2>
         <div className="flex items-center justify-end">
             <div className="flex items-center">
                 {/* <SearchIcon size={24} className="text-primary"/> */}

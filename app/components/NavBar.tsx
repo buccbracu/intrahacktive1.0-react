@@ -90,12 +90,12 @@ export default function NavBar() {
                     </Link>
                   </CollapsibleContent>
                 </Collapsible>
-                <Collapsible>
+                <Collapsible className="w-full flex flex-col">
                   <CollapsibleTrigger className="flex items-center justify-between">
                     <p onClick={() => (window.location.href = "/results")}>
                       Results
                     </p>{" "}
-                    <ChevronsUpDownIcon className="ml-16" />
+                    <ChevronsUpDownIcon className="" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="CollapsibleContent flex flex-col gap-4 ml-4">
                     <Link

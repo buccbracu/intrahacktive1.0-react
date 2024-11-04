@@ -1,8 +1,11 @@
 import React from 'react'
+import SelectedTeams from '../SelectedTeams'
 
 const HackathonResult = () => {
   return (
-    <div>HackathonResult</div>
+    <div>
+        <SelectedTeams teams={[]}/>
+    </div>
   )
 }
 
