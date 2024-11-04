@@ -1,5 +1,10 @@
 "use client";
 
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { importantDates, tabContents, tabItems } from "@/lib/data";
 import { useEffect, useState } from "react";
 import ImportantDate from "../components/guidelines/ImportantDate";
@@ -8,12 +13,6 @@ import TabContent from "../components/guidelines/tab/TabContent";
 import TabContents from "../components/guidelines/tab/TabContents";
 import TabItem from "../components/guidelines/tab/TabItem";
 import TabList from "../components/guidelines/tab/TabList";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import SelectedTeams from "../components/selected-teams/SelectedTeams";
 
 export default function Guidelines() {
   const [selectedTab, setSelectedTab] = useState(tabItems[0].id); // Default to the first tab
@@ -75,7 +74,6 @@ export default function Guidelines() {
             </TabContents>
           </Tab>
 
-
           {/* Important Dates Section */}
           <div className="mt-8 bg-gray-100 shadow-md">
             <div className="py-6 px-4 important-dates flex flex-col items-center">
@@ -129,8 +127,11 @@ export default function Guidelines() {
             </div>
             <div className="primary-bg-color px-4 py-3 rounded-md rounded-t-none">
               <p className="text-sm text-white">
-                <strong>Note:</strong> Payment will be required upon final
-                selection. Registration fee details will be announced soon.
+                <strong>Disclaimer:</strong> Any dates and rules of the event
+                are subject to change at the discretion of the organizers. All
+                registered participants will be notified of any changes via
+                email, communication channels, and updates on the official
+                website.
               </p>
             </div>
           </div>

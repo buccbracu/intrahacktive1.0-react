@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import PurpleIcon from "../img/logo/intrahacktive-icon-purple.png";
-import PurpleLogo from "../img/logo/intrahacktive-logo-purple-white.png";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,23 +14,23 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { ChevronDown, ChevronsUpDownIcon } from "lucide-react";
-import {
   DesktopNavigationMenu,
-  DesktopNavigationMenuList,
-  DesktopNavigationMenuItem,
-  DesktopNavigationMenuTrigger,
   DesktopNavigationMenuContent,
+  DesktopNavigationMenuItem,
+  DesktopNavigationMenuList,
+  DesktopNavigationMenuTrigger,
 } from "@/components/ui/navigation-menu-navbar";
+import { ChevronDown, ChevronsUpDownIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import PurpleIcon from "../img/logo/intrahacktive-icon-purple.png";
+import PurpleLogo from "../img/logo/intrahacktive-logo-purple-white.png";
 
 // import styles from "@/app/styles.module.css";
 
 export default function NavBar() {
   return (
+    // Navbar
     <nav className="navbar  navbar-dark bg-primary">
       <div className="flex items-center justify-between w-full px-4">
         {/* Logo for medium and large screens  */}
@@ -50,7 +51,10 @@ export default function NavBar() {
                 <NavigationMenuLink href="/">Home</NavigationMenuLink>
                 <Collapsible>
                   <CollapsibleTrigger className="flex items-center justify-between">
-                    Guidelines <ChevronsUpDownIcon className="ml-16" />
+                    <p onClick={() => (window.location.href = "/guidelines")}>
+                      Guidelines
+                    </p>{" "}
+                    <ChevronsUpDownIcon className="ml-16" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="CollapsibleContent flex flex-col gap-4 ml-4">
                     <Link
